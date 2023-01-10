@@ -1,2 +1,0 @@
-x<- 1:30
-sample(x,replace = TRUE)
