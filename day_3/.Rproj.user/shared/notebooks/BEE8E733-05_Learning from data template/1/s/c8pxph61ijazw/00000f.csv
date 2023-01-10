@@ -1,0 +1,26 @@
+"0","nicotine_avg <- read_xlsx(""data/Brief Access Lick Data.xlsx"","
+"0","                          sheet = ""Nicotine Average Lick Data"")%>%"
+"0","  clean_names()"
+"0",""
+"0","glimpse(nicotine_avg)"
+"1","Rows: 38"
+"1",""
+"1","
+"
+"1","Columns: 10"
+"1",""
+"1","
+"
+"1","$ animal_id            [3m[38;5;246m<chr>[39m[23m ""ETF1"", ""ETF2"", ""ETF5"", ""ETF6"", …
+$ prenatal_exposure    [3m[38;5;246m<chr>[39m[23m ""alcohol"", ""alcohol"", ""alcohol"",…
+$ weight               [3m[38;5;246m<dbl>[39m[23m 59, 68, 68, 66, 68, 69, 74, 65, …
+$ sex                  [3m[38;5;246m<chr>[39m[23m ""female"", ""female"", ""female"", ""f…
+$ average_licks_water  [3m[38;5;246m<dbl>[39m[23m 54.50000, 71.00000, 67.25000, 56…
+$ average_licks_0_1m_m [3m[38;5;246m<dbl>[39m[23m 54.80000, 70.00000, 67.75000, 50…
+$ average_licks_0_3m_m [3m[38;5;246m<dbl>[39m[23m 34.40000, 30.00000, 35.25000, 47…
+$ average_licks_1_0m_m [3m[38;5;246m<dbl>[39m[23m 46.20000, 69.00000, 50.00000, 56…
+$ average_licks_3_0m_m [3m[38;5;246m<dbl>[39m[23m 13.60000, 35.00000, 30.33333, 48…
+$ average_licks_6_0m_m [3m[38;5;246m<dbl>[39m[23m 9.333333, 37.000000, 21.500000, …"
+"1",""
+"1","
+"

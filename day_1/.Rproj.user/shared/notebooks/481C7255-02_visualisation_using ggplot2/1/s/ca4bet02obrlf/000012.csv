@@ -1,0 +1,3 @@
+"0","ggplot(cancer_df, aes(x= case_f, y = density, col = case_f))+"
+"0","  geom_violin()+"
+"0","  geom_jitter(alpha = 0.2)"

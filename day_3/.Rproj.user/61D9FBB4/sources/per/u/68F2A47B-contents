@@ -1,0 +1,16 @@
+
+
+library(tidyverse)
+
+
+relig_income %>%
+  pivot_longer(cols = 2:11, 
+               names_to = "income",
+               values_to = "count")
+
+billboard %>%
+  pivot_longer(cols = 4:79,
+               names_to = "week",
+               names_prefix = "wk",
+               values_to = "count") %>%
+  mutate(week = as.numeric(week))

@@ -1,0 +1,5 @@
+"0","eat_mass %>%"
+"0","ggplot(aes(x = crickets, y = mass))+"
+"0","  geom_point(aes(col = interaction(yolk_trt, temp_trt)))+"
+"0","  geom_smooth(method = ""lm"")+"
+"0","  facet_wrap(~trial)"

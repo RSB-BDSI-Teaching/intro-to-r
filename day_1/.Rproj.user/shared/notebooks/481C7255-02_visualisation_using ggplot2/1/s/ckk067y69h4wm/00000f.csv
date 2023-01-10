@@ -1,0 +1,5 @@
+"0","ggplot(data = cancer_df, mapping = aes(x = BMI, y = density, colour = case_f)) +"
+"0","  geom_point(alpha = 0.2) +"
+"0","  facet_wrap(~ARM_f, ncol = 1)+"
+"0","  theme(legend.title=element_blank(), legend.position = 'top') +"
+"0","  geom_smooth()"

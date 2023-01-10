@@ -1,0 +1,5 @@
+"0",""
+"0","ggplot(nicotine_long, aes(x=Concentration2,y=Latency, col=prenatal_exposure))+"
+"0","  geom_point()+"
+"0","  scale_x_log10()+"
+"0","  geom_smooth()"

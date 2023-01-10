@@ -1,0 +1,4 @@
+"0","lm1 <- lmer(sqrt(percent)~cell_type*group + (1|specimen1), data = immune1_long)"
+"2","boundary (singular) fit: see ?isSingular
+"
+"0","resid_panel(lm1)"

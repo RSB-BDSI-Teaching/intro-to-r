@@ -1,0 +1,493 @@
+animal_id,prenatal_exposure,weight,sex,concentration,avgLicks,stimulus
+ETF1,alcohol,59,female,0,54.5,nicotine
+ETF1,alcohol,59,female,0.1,54.8,nicotine
+ETF1,alcohol,59,female,0.3,34.4,nicotine
+ETF1,alcohol,59,female,1,46.2,nicotine
+ETF1,alcohol,59,female,3,13.6,nicotine
+ETF1,alcohol,59,female,6,9.333333333333334,nicotine
+ETF2,alcohol,68,female,0,71,nicotine
+ETF2,alcohol,68,female,0.1,70,nicotine
+ETF2,alcohol,68,female,0.3,30,nicotine
+ETF2,alcohol,68,female,1,69,nicotine
+ETF2,alcohol,68,female,3,35,nicotine
+ETF2,alcohol,68,female,6,37,nicotine
+ETF5,alcohol,68,female,0,67.25,nicotine
+ETF5,alcohol,68,female,0.1,67.75,nicotine
+ETF5,alcohol,68,female,0.3,35.25,nicotine
+ETF5,alcohol,68,female,1,50,nicotine
+ETF5,alcohol,68,female,3,30.333333333333332,nicotine
+ETF5,alcohol,68,female,6,21.5,nicotine
+ETF6,alcohol,66,female,0,56.2,nicotine
+ETF6,alcohol,66,female,0.1,50.2,nicotine
+ETF6,alcohol,66,female,0.3,47,nicotine
+ETF6,alcohol,66,female,1,56.6,nicotine
+ETF6,alcohol,66,female,3,48,nicotine
+ETF6,alcohol,66,female,6,29.8,nicotine
+ETF7,alcohol,68,female,0,70.25,nicotine
+ETF7,alcohol,68,female,0.1,26,nicotine
+ETF7,alcohol,68,female,0.3,68.75,nicotine
+ETF7,alcohol,68,female,1,51,nicotine
+ETF7,alcohol,68,female,3,38,nicotine
+ETF7,alcohol,68,female,6,7.25,nicotine
+ETF8,alcohol,69,female,0,67,nicotine
+ETF8,alcohol,69,female,0.1,63.5,nicotine
+ETF8,alcohol,69,female,0.3,48.333333333333336,nicotine
+ETF8,alcohol,69,female,1,49,nicotine
+ETF8,alcohol,69,female,3,29.75,nicotine
+ETF8,alcohol,69,female,6,34,nicotine
+ETF9,alcohol,74,female,0,50.4,nicotine
+ETF9,alcohol,74,female,0.1,50.75,nicotine
+ETF9,alcohol,74,female,0.3,52,nicotine
+ETF9,alcohol,74,female,1,52.4,nicotine
+ETF9,alcohol,74,female,3,38,nicotine
+ETF9,alcohol,74,female,6,27.6,nicotine
+ETF10,alcohol,65,female,0,70.5,nicotine
+ETF10,alcohol,65,female,0.1,67.25,nicotine
+ETF10,alcohol,65,female,0.3,69.75,nicotine
+ETF10,alcohol,65,female,1,68,nicotine
+ETF10,alcohol,65,female,3,51,nicotine
+ETF10,alcohol,65,female,6,36.75,nicotine
+ETF11,alcohol,76,female,0,66.4,nicotine
+ETF11,alcohol,76,female,0.1,58,nicotine
+ETF11,alcohol,76,female,0.3,64.75,nicotine
+ETF11,alcohol,76,female,1,53,nicotine
+ETF11,alcohol,76,female,3,47.5,nicotine
+ETF11,alcohol,76,female,6,18.4,nicotine
+ETM1,alcohol,65,male,0,55.166666666666664,nicotine
+ETM1,alcohol,65,male,0.1,57.833333333333336,nicotine
+ETM1,alcohol,65,male,0.3,44.833333333333336,nicotine
+ETM1,alcohol,65,male,1,53.2,nicotine
+ETM1,alcohol,65,male,3,34,nicotine
+ETM1,alcohol,65,male,6,13.6,nicotine
+ETM2,alcohol,76,male,0,73,nicotine
+ETM2,alcohol,76,male,0.1,44.25,nicotine
+ETM2,alcohol,76,male,0.3,42.75,nicotine
+ETM2,alcohol,76,male,1,72.2,nicotine
+ETM2,alcohol,76,male,3,46.25,nicotine
+ETM2,alcohol,76,male,6,24.5,nicotine
+ETM4,alcohol,72,male,0,65.25,nicotine
+ETM4,alcohol,72,male,0.1,54.25,nicotine
+ETM4,alcohol,72,male,0.3,48,nicotine
+ETM4,alcohol,72,male,1,39.6,nicotine
+ETM4,alcohol,72,male,3,43,nicotine
+ETM4,alcohol,72,male,6,46.666666666666664,nicotine
+ETM5,alcohol,76,male,0,48,nicotine
+ETM5,alcohol,76,male,0.1,51.6,nicotine
+ETM5,alcohol,76,male,0.3,27,nicotine
+ETM5,alcohol,76,male,1,36,nicotine
+ETM5,alcohol,76,male,3,28.8,nicotine
+ETM5,alcohol,76,male,6,13.666666666666666,nicotine
+ETM6,alcohol,64,male,0,69.75,nicotine
+ETM6,alcohol,64,male,0.1,46.25,nicotine
+ETM6,alcohol,64,male,0.3,61.75,nicotine
+ETM6,alcohol,64,male,1,43.6,nicotine
+ETM6,alcohol,64,male,3,31.5,nicotine
+ETM6,alcohol,64,male,6,27,nicotine
+ETM7,alcohol,74,male,0,74.5,nicotine
+ETM7,alcohol,74,male,0.1,71.25,nicotine
+ETM7,alcohol,74,male,0.3,67,nicotine
+ETM7,alcohol,74,male,1,57.2,nicotine
+ETM7,alcohol,74,male,3,23.25,nicotine
+ETM7,alcohol,74,male,6,8.5,nicotine
+ETM8,alcohol,74,male,0,49.5,nicotine
+ETM8,alcohol,74,male,0.1,57.4,nicotine
+ETM8,alcohol,74,male,0.3,37.857142857142854,nicotine
+ETM8,alcohol,74,male,1,63.8,nicotine
+ETM8,alcohol,74,male,3,29.833333333333332,nicotine
+ETM8,alcohol,74,male,6,27.75,nicotine
+ETM9,alcohol,81,male,0,41.4,nicotine
+ETM9,alcohol,81,male,0.1,49.6,nicotine
+ETM9,alcohol,81,male,0.3,58,nicotine
+ETM9,alcohol,81,male,1,48.4,nicotine
+ETM9,alcohol,81,male,3,49,nicotine
+ETM9,alcohol,81,male,6,38,nicotine
+ETM10,alcohol,72,male,0,42.833333333333336,nicotine
+ETM10,alcohol,72,male,0.1,63.333333333333336,nicotine
+ETM10,alcohol,72,male,0.3,56,nicotine
+ETM10,alcohol,72,male,1,56.8,nicotine
+ETM10,alcohol,72,male,3,40,nicotine
+ETM10,alcohol,72,male,6,28,nicotine
+ETM11,alcohol,71,male,0,72.6,nicotine
+ETM11,alcohol,71,male,0.1,58.25,nicotine
+ETM11,alcohol,71,male,0.3,53.25,nicotine
+ETM11,alcohol,71,male,1,41,nicotine
+ETM11,alcohol,71,male,3,27.5,nicotine
+ETM11,alcohol,71,male,6,16.4,nicotine
+FCF1,free choice liquid diet,69,female,0,35.6,nicotine
+FCF1,free choice liquid diet,69,female,0.1,42.6,nicotine
+FCF1,free choice liquid diet,69,female,0.3,15.6,nicotine
+FCF1,free choice liquid diet,69,female,1,36.6,nicotine
+FCF1,free choice liquid diet,69,female,3,17,nicotine
+FCF1,free choice liquid diet,69,female,6,12.75,nicotine
+FCF2,free choice liquid diet,65,female,0,50.333333333333336,nicotine
+FCF2,free choice liquid diet,65,female,0.1,30.25,nicotine
+FCF2,free choice liquid diet,65,female,0.3,36.333333333333336,nicotine
+FCF2,free choice liquid diet,65,female,1,50.666666666666664,nicotine
+FCF2,free choice liquid diet,65,female,3,20.5,nicotine
+FCF2,free choice liquid diet,65,female,6,16.666666666666668,nicotine
+FCF3,free choice liquid diet,72,female,0,63.6,nicotine
+FCF3,free choice liquid diet,72,female,0.1,55.8,nicotine
+FCF3,free choice liquid diet,72,female,0.3,47.5,nicotine
+FCF3,free choice liquid diet,72,female,1,42.25,nicotine
+FCF3,free choice liquid diet,72,female,3,15,nicotine
+FCF3,free choice liquid diet,72,female,6,5.166666666666667,nicotine
+FCF4,free choice liquid diet,68,female,0,66,nicotine
+FCF4,free choice liquid diet,68,female,0.1,60,nicotine
+FCF4,free choice liquid diet,68,female,0.3,52,nicotine
+FCF4,free choice liquid diet,68,female,1,43.4,nicotine
+FCF4,free choice liquid diet,68,female,3,35.75,nicotine
+FCF4,free choice liquid diet,68,female,6,30.5,nicotine
+FCF5,free choice liquid diet,70,female,0,41.2,nicotine
+FCF5,free choice liquid diet,70,female,0.1,48.5,nicotine
+FCF5,free choice liquid diet,70,female,0.3,26,nicotine
+FCF5,free choice liquid diet,70,female,1,48.2,nicotine
+FCF5,free choice liquid diet,70,female,3,26.5,nicotine
+FCF5,free choice liquid diet,70,female,6,29,nicotine
+FCF7,free choice liquid diet,73,female,0,62.4,nicotine
+FCF7,free choice liquid diet,73,female,0.1,49,nicotine
+FCF7,free choice liquid diet,73,female,0.3,56.75,nicotine
+FCF7,free choice liquid diet,73,female,1,51,nicotine
+FCF7,free choice liquid diet,73,female,3,29.5,nicotine
+FCF7,free choice liquid diet,73,female,6,17.2,nicotine
+FCF8,free choice liquid diet,79,female,0,52.333333333333336,nicotine
+FCF8,free choice liquid diet,79,female,0.1,74.75,nicotine
+FCF8,free choice liquid diet,79,female,0.3,72.33333333333333,nicotine
+FCF8,free choice liquid diet,79,female,1,61,nicotine
+FCF8,free choice liquid diet,79,female,3,67,nicotine
+FCF8,free choice liquid diet,79,female,6,34,nicotine
+FCF9,free choice liquid diet,82,female,0,47.6,nicotine
+FCF9,free choice liquid diet,82,female,0.1,35.8,nicotine
+FCF9,free choice liquid diet,82,female,0.3,39.75,nicotine
+FCF9,free choice liquid diet,82,female,1,35.6,nicotine
+FCF9,free choice liquid diet,82,female,3,12.25,nicotine
+FCF9,free choice liquid diet,82,female,6,16.8,nicotine
+FCF10,free choice liquid diet,69,female,0,67,nicotine
+FCF10,free choice liquid diet,69,female,0.1,61.5,nicotine
+FCF10,free choice liquid diet,69,female,0.3,66.5,nicotine
+FCF10,free choice liquid diet,69,female,1,59.666666666666664,nicotine
+FCF10,free choice liquid diet,69,female,3,35.166666666666664,nicotine
+FCF10,free choice liquid diet,69,female,6,33.8,nicotine
+FCF11,free choice liquid diet,74,female,0,61.8,nicotine
+FCF11,free choice liquid diet,74,female,0.1,53.6,nicotine
+FCF11,free choice liquid diet,74,female,0.3,62.25,nicotine
+FCF11,free choice liquid diet,74,female,1,59.2,nicotine
+FCF11,free choice liquid diet,74,female,3,51.6,nicotine
+FCF11,free choice liquid diet,74,female,6,37.6,nicotine
+FCM1,free choice liquid diet,75,male,0,37,nicotine
+FCM1,free choice liquid diet,75,male,0.1,17.666666666666668,nicotine
+FCM1,free choice liquid diet,75,male,0.3,12.333333333333334,nicotine
+FCM1,free choice liquid diet,75,male,1,20,nicotine
+FCM1,free choice liquid diet,75,male,3,22.5,nicotine
+FCM1,free choice liquid diet,75,male,6,7.333333333333333,nicotine
+FCM2,free choice liquid diet,75,male,0,69,nicotine
+FCM2,free choice liquid diet,75,male,0.1,55,nicotine
+FCM2,free choice liquid diet,75,male,0.3,61,nicotine
+FCM2,free choice liquid diet,75,male,1,54.8,nicotine
+FCM2,free choice liquid diet,75,male,3,48,nicotine
+FCM2,free choice liquid diet,75,male,6,32.4,nicotine
+FCM3,free choice liquid diet,78,male,0,44,nicotine
+FCM3,free choice liquid diet,78,male,0.1,50.2,nicotine
+FCM3,free choice liquid diet,78,male,0.3,35.2,nicotine
+FCM3,free choice liquid diet,78,male,1,41.6,nicotine
+FCM3,free choice liquid diet,78,male,3,26.6,nicotine
+FCM3,free choice liquid diet,78,male,6,4.6,nicotine
+FCM4,free choice liquid diet,70,male,0,56,nicotine
+FCM4,free choice liquid diet,70,male,0.1,67.25,nicotine
+FCM4,free choice liquid diet,70,male,0.3,57.75,nicotine
+FCM4,free choice liquid diet,70,male,1,49.6,nicotine
+FCM4,free choice liquid diet,70,male,3,23.75,nicotine
+FCM4,free choice liquid diet,70,male,6,15.4,nicotine
+FCM7,free choice liquid diet,76,male,0,50.333333333333336,nicotine
+FCM7,free choice liquid diet,76,male,0.1,30,nicotine
+FCM7,free choice liquid diet,76,male,0.3,35.6,nicotine
+FCM7,free choice liquid diet,76,male,1,41.166666666666664,nicotine
+FCM7,free choice liquid diet,76,male,3,15.166666666666666,nicotine
+FCM7,free choice liquid diet,76,male,6,25,nicotine
+FCM8,free choice liquid diet,88,male,0,56.75,nicotine
+FCM8,free choice liquid diet,88,male,0.1,36.75,nicotine
+FCM8,free choice liquid diet,88,male,0.3,52.25,nicotine
+FCM8,free choice liquid diet,88,male,1,51,nicotine
+FCM8,free choice liquid diet,88,male,3,41,nicotine
+FCM8,free choice liquid diet,88,male,6,52.666666666666664,nicotine
+FCM9,free choice liquid diet,87,male,0,63.5,nicotine
+FCM9,free choice liquid diet,87,male,0.1,56.833333333333336,nicotine
+FCM9,free choice liquid diet,87,male,0.3,56,nicotine
+FCM9,free choice liquid diet,87,male,1,60,nicotine
+FCM9,free choice liquid diet,87,male,3,55.8,nicotine
+FCM9,free choice liquid diet,87,male,6,43.2,nicotine
+FCM10,free choice liquid diet,77,male,0,66.16666666666667,nicotine
+FCM10,free choice liquid diet,77,male,0.1,67.5,nicotine
+FCM10,free choice liquid diet,77,male,0.3,56.857142857142854,nicotine
+FCM10,free choice liquid diet,77,male,1,62,nicotine
+FCM10,free choice liquid diet,77,male,3,31.333333333333332,nicotine
+FCM10,free choice liquid diet,77,male,6,20.5,nicotine
+FCM11,free choice liquid diet,76,male,0,61.5,nicotine
+FCM11,free choice liquid diet,76,male,0.1,55.75,nicotine
+FCM11,free choice liquid diet,76,male,0.3,28.5,nicotine
+FCM11,free choice liquid diet,76,male,1,36,nicotine
+FCM11,free choice liquid diet,76,male,3,24,nicotine
+FCM11,free choice liquid diet,76,male,6,20,nicotine
+ETF1,alcohol,55,female,0,11.166666666666666,sucrose
+ETF1,alcohol,55,female,0.03,19.666666666666668,sucrose
+ETF1,alcohol,55,female,0.1,14.666666666666666,sucrose
+ETF1,alcohol,55,female,0.2,31,sucrose
+ETF1,alcohol,55,female,0.3,51.142857142857146,sucrose
+ETF1,alcohol,55,female,0.6,58.857142857142854,sucrose
+ETF2,alcohol,57,female,0,8.75,sucrose
+ETF2,alcohol,57,female,0.03,13.8,sucrose
+ETF2,alcohol,57,female,0.1,22.2,sucrose
+ETF2,alcohol,57,female,0.2,30.666666666666668,sucrose
+ETF2,alcohol,57,female,0.3,55.333333333333336,sucrose
+ETF2,alcohol,57,female,0.6,62.333333333333336,sucrose
+ETF3,alcohol,54,female,0,18.4,sucrose
+ETF3,alcohol,54,female,0.03,15.666666666666666,sucrose
+ETF3,alcohol,54,female,0.1,26.285714285714285,sucrose
+ETF3,alcohol,54,female,0.2,44.57142857142857,sucrose
+ETF3,alcohol,54,female,0.3,70.66666666666667,sucrose
+ETF3,alcohol,54,female,0.6,70,sucrose
+ETF4,alcohol,57,female,0,36.285714285714285,sucrose
+ETF4,alcohol,57,female,0.03,47.25,sucrose
+ETF4,alcohol,57,female,0.1,32,sucrose
+ETF4,alcohol,57,female,0.2,31,sucrose
+ETF4,alcohol,57,female,0.3,57.57142857142857,sucrose
+ETF4,alcohol,57,female,0.6,63,sucrose
+ETF5,alcohol,61,female,0,16,sucrose
+ETF5,alcohol,61,female,0.03,6,sucrose
+ETF5,alcohol,61,female,0.1,21.8,sucrose
+ETF5,alcohol,61,female,0.2,33.166666666666664,sucrose
+ETF5,alcohol,61,female,0.3,46.333333333333336,sucrose
+ETF5,alcohol,61,female,0.6,53.8,sucrose
+ETF6,alcohol,60,female,0,6.666666666666667,sucrose
+ETF6,alcohol,60,female,0.03,10.428571428571429,sucrose
+ETF6,alcohol,60,female,0.1,8.75,sucrose
+ETF6,alcohol,60,female,0.2,25.875,sucrose
+ETF6,alcohol,60,female,0.3,48.55555555555556,sucrose
+ETF6,alcohol,60,female,0.6,57.5,sucrose
+ETF7,alcohol,58,female,0,12.666666666666666,sucrose
+ETF7,alcohol,58,female,0.03,23.666666666666668,sucrose
+ETF7,alcohol,58,female,0.1,23.5,sucrose
+ETF7,alcohol,58,female,0.2,28,sucrose
+ETF7,alcohol,58,female,0.3,62.333333333333336,sucrose
+ETF7,alcohol,58,female,0.6,58.5,sucrose
+ETF8,alcohol,57,female,0,24.5,sucrose
+ETF8,alcohol,57,female,0.03,33.833333333333336,sucrose
+ETF8,alcohol,57,female,0.1,10.2,sucrose
+ETF8,alcohol,57,female,0.2,31.166666666666668,sucrose
+ETF8,alcohol,57,female,0.3,26,sucrose
+ETF8,alcohol,57,female,0.6,13.2,sucrose
+ETF9,alcohol,62,female,0,5.666666666666667,sucrose
+ETF9,alcohol,62,female,0.03,14,sucrose
+ETF9,alcohol,62,female,0.1,22.2,sucrose
+ETF9,alcohol,62,female,0.2,28.5,sucrose
+ETF9,alcohol,62,female,0.3,48.57142857142857,sucrose
+ETF9,alcohol,62,female,0.6,48.57142857142857,sucrose
+ETF10,alcohol,58,female,0,11.5,sucrose
+ETF10,alcohol,58,female,0.03,15,sucrose
+ETF10,alcohol,58,female,0.1,23,sucrose
+ETF10,alcohol,58,female,0.2,22,sucrose
+ETF10,alcohol,58,female,0.3,66.2,sucrose
+ETF10,alcohol,58,female,0.6,66,sucrose
+ETF11,alcohol,62,female,0,10,sucrose
+ETF11,alcohol,62,female,0.03,9.75,sucrose
+ETF11,alcohol,62,female,0.1,9.4,sucrose
+ETF11,alcohol,62,female,0.2,23.2,sucrose
+ETF11,alcohol,62,female,0.3,52.25,sucrose
+ETF11,alcohol,62,female,0.6,62.8,sucrose
+ETM1,alcohol,48,male,0,8.333333333333334,sucrose
+ETM1,alcohol,48,male,0.03,14,sucrose
+ETM1,alcohol,48,male,0.1,18.75,sucrose
+ETM1,alcohol,48,male,0.2,32.125,sucrose
+ETM1,alcohol,48,male,0.3,50,sucrose
+ETM1,alcohol,48,male,0.6,62.625,sucrose
+ETM2,alcohol,60,male,0,24,sucrose
+ETM2,alcohol,60,male,0.03,13.833333333333334,sucrose
+ETM2,alcohol,60,male,0.1,14.125,sucrose
+ETM2,alcohol,60,male,0.2,33.5,sucrose
+ETM2,alcohol,60,male,0.3,53.142857142857146,sucrose
+ETM2,alcohol,60,male,0.6,62.75,sucrose
+ETM3,alcohol,56,male,0,9.2,sucrose
+ETM3,alcohol,56,male,0.03,19.25,sucrose
+ETM3,alcohol,56,male,0.1,27.75,sucrose
+ETM3,alcohol,56,male,0.2,29.25,sucrose
+ETM3,alcohol,56,male,0.3,73,sucrose
+ETM3,alcohol,56,male,0.6,69.6,sucrose
+ETM4,alcohol,59,male,0,6.428571428571429,sucrose
+ETM4,alcohol,59,male,0.03,7,sucrose
+ETM4,alcohol,59,male,0.1,20.25,sucrose
+ETM4,alcohol,59,male,0.2,27.333333333333332,sucrose
+ETM4,alcohol,59,male,0.3,47.111111111111114,sucrose
+ETM4,alcohol,59,male,0.6,61.333333333333336,sucrose
+ETM5,alcohol,65,male,0,10,sucrose
+ETM5,alcohol,65,male,0.03,19.8,sucrose
+ETM5,alcohol,65,male,0.1,24.444444444444443,sucrose
+ETM5,alcohol,65,male,0.2,34.7,sucrose
+ETM5,alcohol,65,male,0.3,64.36363636363636,sucrose
+ETM5,alcohol,65,male,0.6,55.54545454545455,sucrose
+ETM6,alcohol,59,male,0,28.666666666666668,sucrose
+ETM6,alcohol,59,male,0.03,14.3,sucrose
+ETM6,alcohol,59,male,0.1,29.2,sucrose
+ETM6,alcohol,59,male,0.2,44.75,sucrose
+ETM6,alcohol,59,male,0.3,51.6,sucrose
+ETM6,alcohol,59,male,0.6,52,sucrose
+ETM7,alcohol,64,male,0,7.833333333333333,sucrose
+ETM7,alcohol,64,male,0.03,10.142857142857142,sucrose
+ETM7,alcohol,64,male,0.1,16.11111111111111,sucrose
+ETM7,alcohol,64,male,0.2,25.625,sucrose
+ETM7,alcohol,64,male,0.3,49.6,sucrose
+ETM7,alcohol,64,male,0.6,62.22222222222222,sucrose
+ETM8,alcohol,60,male,0,11.625,sucrose
+ETM8,alcohol,60,male,0.03,15.375,sucrose
+ETM8,alcohol,60,male,0.1,22.75,sucrose
+ETM8,alcohol,60,male,0.2,39.375,sucrose
+ETM8,alcohol,60,male,0.3,47.666666666666664,sucrose
+ETM8,alcohol,60,male,0.6,56.55555555555556,sucrose
+ETM9,alcohol,66,male,0,8.75,sucrose
+ETM9,alcohol,66,male,0.03,18.75,sucrose
+ETM9,alcohol,66,male,0.1,23.666666666666668,sucrose
+ETM9,alcohol,66,male,0.2,38.57142857142857,sucrose
+ETM9,alcohol,66,male,0.3,57.166666666666664,sucrose
+ETM9,alcohol,66,male,0.6,54.57142857142857,sucrose
+ETM10,alcohol,61,male,0,17,sucrose
+ETM10,alcohol,61,male,0.03,11.833333333333334,sucrose
+ETM10,alcohol,61,male,0.1,23.142857142857142,sucrose
+ETM10,alcohol,61,male,0.2,36.6,sucrose
+ETM10,alcohol,61,male,0.3,42,sucrose
+ETM10,alcohol,61,male,0.6,52.375,sucrose
+ETM11,alcohol,60,male,0,5.666666666666667,sucrose
+ETM11,alcohol,60,male,0.03,13.4,sucrose
+ETM11,alcohol,60,male,0.1,20,sucrose
+ETM11,alcohol,60,male,0.2,26.75,sucrose
+ETM11,alcohol,60,male,0.3,41,sucrose
+ETM11,alcohol,60,male,0.6,43.4,sucrose
+FCF1,free choice liquid diet,65,female,0,14.6,sucrose
+FCF1,free choice liquid diet,65,female,0.03,26.2,sucrose
+FCF1,free choice liquid diet,65,female,0.1,15.666666666666666,sucrose
+FCF1,free choice liquid diet,65,female,0.2,38,sucrose
+FCF1,free choice liquid diet,65,female,0.3,61.2,sucrose
+FCF1,free choice liquid diet,65,female,0.6,62.8,sucrose
+FCF2,free choice liquid diet,55,female,0,3.8333333333333335,sucrose
+FCF2,free choice liquid diet,55,female,0.03,8.428571428571429,sucrose
+FCF2,free choice liquid diet,55,female,0.1,13.833333333333334,sucrose
+FCF2,free choice liquid diet,55,female,0.2,27.285714285714285,sucrose
+FCF2,free choice liquid diet,55,female,0.3,47.142857142857146,sucrose
+FCF2,free choice liquid diet,55,female,0.6,57.42857142857143,sucrose
+FCF3,free choice liquid diet,60,female,0,17.5,sucrose
+FCF3,free choice liquid diet,60,female,0.03,6.6,sucrose
+FCF3,free choice liquid diet,60,female,0.1,9.25,sucrose
+FCF3,free choice liquid diet,60,female,0.2,39.285714285714285,sucrose
+FCF3,free choice liquid diet,60,female,0.3,53.714285714285715,sucrose
+FCF3,free choice liquid diet,60,female,0.6,61.714285714285715,sucrose
+FCF4,free choice liquid diet,59,female,0,23.571428571428573,sucrose
+FCF4,free choice liquid diet,59,female,0.03,29.857142857142858,sucrose
+FCF4,free choice liquid diet,59,female,0.1,52.5,sucrose
+FCF4,free choice liquid diet,59,female,0.2,68,sucrose
+FCF4,free choice liquid diet,59,female,0.3,58.714285714285715,sucrose
+FCF4,free choice liquid diet,59,female,0.6,65.14285714285714,sucrose
+FCF5,free choice liquid diet,62,female,0,18.333333333333332,sucrose
+FCF5,free choice liquid diet,62,female,0.03,37,sucrose
+FCF5,free choice liquid diet,62,female,0.1,34.111111111111114,sucrose
+FCF5,free choice liquid diet,62,female,0.2,36.875,sucrose
+FCF5,free choice liquid diet,62,female,0.3,43.7,sucrose
+FCF5,free choice liquid diet,62,female,0.6,50.888888888888886,sucrose
+FCF6,free choice liquid diet,70,female,0,8.8,sucrose
+FCF6,free choice liquid diet,70,female,0.03,11.5,sucrose
+FCF6,free choice liquid diet,70,female,0.1,17.857142857142858,sucrose
+FCF6,free choice liquid diet,70,female,0.2,30.285714285714285,sucrose
+FCF6,free choice liquid diet,70,female,0.3,50.142857142857146,sucrose
+FCF6,free choice liquid diet,70,female,0.6,56.285714285714285,sucrose
+FCF7,free choice liquid diet,66,female,0,18.333333333333332,sucrose
+FCF7,free choice liquid diet,66,female,0.03,14.333333333333334,sucrose
+FCF7,free choice liquid diet,66,female,0.1,14,sucrose
+FCF7,free choice liquid diet,66,female,0.2,43,sucrose
+FCF7,free choice liquid diet,66,female,0.3,50.333333333333336,sucrose
+FCF7,free choice liquid diet,66,female,0.6,61,sucrose
+FCF8,free choice liquid diet,69,female,0,56,sucrose
+FCF8,free choice liquid diet,69,female,0.03,27.333333333333332,sucrose
+FCF8,free choice liquid diet,69,female,0.1,35.833333333333336,sucrose
+FCF8,free choice liquid diet,69,female,0.2,33.166666666666664,sucrose
+FCF8,free choice liquid diet,69,female,0.3,57,sucrose
+FCF8,free choice liquid diet,69,female,0.6,43,sucrose
+FCF9,free choice liquid diet,67,female,0,5.333333333333333,sucrose
+FCF9,free choice liquid diet,67,female,0.03,11,sucrose
+FCF9,free choice liquid diet,67,female,0.1,13.166666666666666,sucrose
+FCF9,free choice liquid diet,67,female,0.2,33.285714285714285,sucrose
+FCF9,free choice liquid diet,67,female,0.3,60.857142857142854,sucrose
+FCF9,free choice liquid diet,67,female,0.6,62.714285714285715,sucrose
+FCF10,free choice liquid diet,60,female,0,8.142857142857142,sucrose
+FCF10,free choice liquid diet,60,female,0.03,17.5,sucrose
+FCF10,free choice liquid diet,60,female,0.1,17.22222222222222,sucrose
+FCF10,free choice liquid diet,60,female,0.2,30.75,sucrose
+FCF10,free choice liquid diet,60,female,0.3,52.77777777777778,sucrose
+FCF10,free choice liquid diet,60,female,0.6,63.5,sucrose
+FCF11,free choice liquid diet,61,female,0,7,sucrose
+FCF11,free choice liquid diet,61,female,0.03,12.75,sucrose
+FCF11,free choice liquid diet,61,female,0.1,22.8,sucrose
+FCF11,free choice liquid diet,61,female,0.2,22.6,sucrose
+FCF11,free choice liquid diet,61,female,0.3,59.25,sucrose
+FCF11,free choice liquid diet,61,female,0.6,61.4,sucrose
+FCM1,free choice liquid diet,64,male,0,13.6,sucrose
+FCM1,free choice liquid diet,64,male,0.03,10.571428571428571,sucrose
+FCM1,free choice liquid diet,64,male,0.1,11.571428571428571,sucrose
+FCM1,free choice liquid diet,64,male,0.2,32.875,sucrose
+FCM1,free choice liquid diet,64,male,0.3,49.714285714285715,sucrose
+FCM1,free choice liquid diet,64,male,0.6,60.5,sucrose
+FCM2,free choice liquid diet,61,male,0,6.2,sucrose
+FCM2,free choice liquid diet,61,male,0.03,17.6,sucrose
+FCM2,free choice liquid diet,61,male,0.1,22.6,sucrose
+FCM2,free choice liquid diet,61,male,0.2,38.125,sucrose
+FCM2,free choice liquid diet,61,male,0.3,44.111111111111114,sucrose
+FCM2,free choice liquid diet,61,male,0.6,61.75,sucrose
+FCM3,free choice liquid diet,64,male,0,11.428571428571429,sucrose
+FCM3,free choice liquid diet,64,male,0.03,11.25,sucrose
+FCM3,free choice liquid diet,64,male,0.1,14.777777777777779,sucrose
+FCM3,free choice liquid diet,64,male,0.2,33.625,sucrose
+FCM3,free choice liquid diet,64,male,0.3,52.111111111111114,sucrose
+FCM3,free choice liquid diet,64,male,0.6,54.285714285714285,sucrose
+FCM4,free choice liquid diet,58,male,0,40.714285714285715,sucrose
+FCM4,free choice liquid diet,58,male,0.03,17,sucrose
+FCM4,free choice liquid diet,58,male,0.1,38.625,sucrose
+FCM4,free choice liquid diet,58,male,0.2,70.55555555555556,sucrose
+FCM4,free choice liquid diet,58,male,0.3,56,sucrose
+FCM4,free choice liquid diet,58,male,0.6,77.875,sucrose
+FCM5,free choice liquid diet,60,male,0,34.57142857142857,sucrose
+FCM5,free choice liquid diet,60,male,0.03,24.571428571428573,sucrose
+FCM5,free choice liquid diet,60,male,0.1,29.11111111111111,sucrose
+FCM5,free choice liquid diet,60,male,0.2,48.666666666666664,sucrose
+FCM5,free choice liquid diet,60,male,0.3,67,sucrose
+FCM5,free choice liquid diet,60,male,0.6,66.77777777777777,sucrose
+FCM6,free choice liquid diet,73,male,0,17.666666666666668,sucrose
+FCM6,free choice liquid diet,73,male,0.03,10.666666666666666,sucrose
+FCM6,free choice liquid diet,73,male,0.1,21.285714285714285,sucrose
+FCM6,free choice liquid diet,73,male,0.2,28.714285714285715,sucrose
+FCM6,free choice liquid diet,73,male,0.3,55.57142857142857,sucrose
+FCM6,free choice liquid diet,73,male,0.6,56.125,sucrose
+FCM7,free choice liquid diet,66,male,0,18.5,sucrose
+FCM7,free choice liquid diet,66,male,0.03,21.5,sucrose
+FCM7,free choice liquid diet,66,male,0.1,18.4,sucrose
+FCM7,free choice liquid diet,66,male,0.2,31.666666666666668,sucrose
+FCM7,free choice liquid diet,66,male,0.3,51.166666666666664,sucrose
+FCM7,free choice liquid diet,66,male,0.6,49.333333333333336,sucrose
+FCM8,free choice liquid diet,72,male,0,30.714285714285715,sucrose
+FCM8,free choice liquid diet,72,male,0.03,31.428571428571427,sucrose
+FCM8,free choice liquid diet,72,male,0.1,30.333333333333332,sucrose
+FCM8,free choice liquid diet,72,male,0.2,56.8,sucrose
+FCM8,free choice liquid diet,72,male,0.3,58.285714285714285,sucrose
+FCM8,free choice liquid diet,72,male,0.6,35.666666666666664,sucrose
+FCM9,free choice liquid diet,72,male,0,11.2,sucrose
+FCM9,free choice liquid diet,72,male,0.03,19.75,sucrose
+FCM9,free choice liquid diet,72,male,0.1,28.4,sucrose
+FCM9,free choice liquid diet,72,male,0.2,39,sucrose
+FCM9,free choice liquid diet,72,male,0.3,50.25,sucrose
+FCM9,free choice liquid diet,72,male,0.6,55.4,sucrose
+FCM10,free choice liquid diet,66,male,0,7,sucrose
+FCM10,free choice liquid diet,66,male,0.03,10,sucrose
+FCM10,free choice liquid diet,66,male,0.1,22.666666666666668,sucrose
+FCM10,free choice liquid diet,66,male,0.2,35.125,sucrose
+FCM10,free choice liquid diet,66,male,0.3,57.44444444444444,sucrose
+FCM10,free choice liquid diet,66,male,0.6,63.375,sucrose
+FCM11,free choice liquid diet,59,male,0,5.166666666666667,sucrose
+FCM11,free choice liquid diet,59,male,0.03,5.5,sucrose
+FCM11,free choice liquid diet,59,male,0.1,14.5,sucrose
+FCM11,free choice liquid diet,59,male,0.2,22.454545454545453,sucrose
+FCM11,free choice liquid diet,59,male,0.3,54.36363636363637,sucrose
+FCM11,free choice liquid diet,59,male,0.6,58.09090909090909,sucrose

@@ -1,0 +1,2 @@
+"0","veal$bilirubin_1 <- as.numeric(veal$bilirubin_1)"
+"2","Warning: NAs introduced by coercion"

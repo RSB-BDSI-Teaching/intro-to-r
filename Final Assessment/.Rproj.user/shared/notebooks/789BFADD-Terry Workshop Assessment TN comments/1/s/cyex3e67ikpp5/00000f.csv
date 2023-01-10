@@ -1,0 +1,24 @@
+"0","glimpse(Dieback2022)"
+"1","Rows: 120"
+"1",""
+"1","
+"
+"1","Columns: 12"
+"1",""
+"1","
+"
+"1","$ Site               [3m[38;5;246m<chr>[39m[23m ""Bunyan TSR"", ""Bunyan TSR"", ""Bunyan TSR"", ""B…
+$ `Pairing Approach` [3m[38;5;246m<chr>[39m[23m ""Unpaired"", ""Unpaired"", ""Unpaired"", ""Unpaire…
+$ Health_Status      [3m[38;5;246m<chr>[39m[23m ""Healthy"", ""Healthy"", ""Healthy"", ""Healthy"", …
+$ Health             [3m[38;5;246m<chr>[39m[23m ""Healthy Tree 1"", ""Healthy Tree 2"", ""Healthy…
+$ `DBH (cm)`         [3m[38;5;246m<dbl>[39m[23m 65.0, 55.5, 36.0, 35.0, 40.5, 33.5, 39.3, 48…
+$ `Crown _Size`      [3m[38;5;246m<dbl>[39m[23m 4, 5, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5,…
+$ Foliar_Density     [3m[38;5;246m<dbl>[39m[23m 4, 5, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 4, 5, 5,…
+$ Dead_Branches      [3m[38;5;246m<dbl>[39m[23m 5, 5, 4, 5, 5, 5, 5, 5, 5, 4, 5, 5, 5, 4, 5,…
+$ Epicormic_Growth   [3m[38;5;246m<dbl>[39m[23m 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5,…
+$ Foliar_Damage      [3m[38;5;246m<dbl>[39m[23m 4, 4, 4, 4, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 4,…
+$ Dieback_Scores     [3m[38;5;246m<dbl>[39m[23m 22, 24, 21, 22, 25, 25, 24, 24, 24, 23, 24, …
+$ `Tree No`          [3m[38;5;246m<chr>[39m[23m ""HT1"", ""HT2"", ""HT3"", ""HT4"", ""HT5"", ""HT6"", ""H…"
+"1",""
+"1","
+"

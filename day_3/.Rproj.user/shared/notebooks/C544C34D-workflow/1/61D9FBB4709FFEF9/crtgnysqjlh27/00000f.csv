@@ -1,0 +1,5 @@
+"0","in_or_out_means <- in_or_out_long %>%"
+"0","  group_by(variable,scenario) %>%"
+"0","  summarise(value = mean(data, na.rm = TRUE))"
+"2","`summarise()` has grouped output by 'variable'. You can override using the `.groups` argument."
+"0","in_or_out_means"

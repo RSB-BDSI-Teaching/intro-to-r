@@ -1,0 +1,5 @@
+"0","ggplot(eat_mass_sum, aes(x = trial, y = mean_mass, col = yolk_trt)) +"
+"0","  geom_point(alpha = 0.2) +"
+"0","  geom_line(aes(group=yolk_trt)) + "
+"0","  facet_wrap(~temp_trt)+"
+"0","  theme(legend.title=element_blank(), legend.position = 'top') "

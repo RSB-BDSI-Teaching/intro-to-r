@@ -1,0 +1,8 @@
+"0","nicotine_long$Concentration2 <- factor(nicotine_long$Concentration, "
+"0","                                       labels = c(""0"",""0.1"",""0.3"",""1.0"",""3.0"",""6.0"")) %>%"
+"0","                                as.character()%>%"
+"0","                                as.numeric()"
+"0",""
+"0","ggplot(nicotine_long, aes(x=Concentration2,y=Licks, col=prenatal_exposure))+"
+"0","  geom_point()+"
+"0","  geom_smooth()"

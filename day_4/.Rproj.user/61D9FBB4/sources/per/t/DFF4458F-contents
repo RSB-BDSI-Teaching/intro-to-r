@@ -1,0 +1,206 @@
+---
+title: "Project data analysis"
+author: "Ojo-Ajogu Akuh"
+date: "`r Sys.Date()`"
+output: html_document
+---
+# Library import
+```{r setup, include=FALSE}
+library(tidyverse)
+library(readxl)
+library(janitor)
+library(lmerTest)
+library(ggpubr)
+install.packages("gsubfn")
+library(gsubfn)
+library(gtsummary)
+```
+
+# Data import
+```{r}
+curve_fitting <- read_xlsx("fldAs and LytB.Fd-FNR.xlsx", sheet = "Data for export") %>% 
+  mutate(Dilutions=factor(Dilutions)) %>% 
+  clean_names()
+
+glimpse(curve_fitting)
+```
+
+# Data visualization
+```{r}
+plot1 <- ggplot(curve_fitting, aes(od_fd_fnr,cfu_fd_fnr))+geom_point()+
+  geom_smooth(method = "lm")+
+  stat_regline_equation()+
+  ylab("Viable cells, *10^10 (cells/ml)")+
+  xlab("OD 600nm")
+
+plot1
+
+plot2 <- ggplot(curve_fitting, aes(od_pf_lyt_b_fd_fnr,cfu_pf_lyt_b_fd_fnr))+geom_point()+
+  geom_smooth(method = "lm")+
+  stat_regline_equation()+
+  ylab("Viable cells, *10^10 (cells/ml)")+
+  xlab("OD 600nm")
+
+plot2
+
+plot3 <- ggplot(curve_fitting, aes(od_ecfld_a,cfu_ecfld_a))+geom_point()+
+  geom_smooth(method = "lm")+
+  stat_regline_equation()+
+  ylab("Viable cells, *10^10 (cells/ml)")+
+  xlab("OD 600nm")
+
+plot3
+
+plot4 <- ggplot(curve_fitting, aes(od_chfld_a,cfu_chfld_a))+geom_point()+
+  geom_smooth(method = "lm")+
+  stat_regline_equation()+
+  ylab("Viable cells, *10^10 (cells/ml)")+
+  xlab("OD 600nm")
+
+plot4
+
+plot5 <- ggplot(curve_fitting, aes(od_nstfld_a,cfu_nstfld_a))+geom_point()+
+  geom_smooth(method = "lm")+
+  stat_regline_equation()+
+  ylab("Viable cells, *10^10 (cells/ml)")+
+  xlab("OD 600nm")
+
+plot5
+```
+
+# Import growth assay data for LytB and Fd-FNR
+```{r}
+LytB_Fd_FNR <- read_xlsx("Ojo-Ajogu Akuh_Fd-FNR.LytB.xlsx", sheet = "Sheet3", range="A65:BQ163") %>% 
+  clean_names() %>% 
+  rename(position=cycle_nr) %>% 
+  filter(!(position %in% c("Time [s]","Temp. [°C]"))) %>% 
+  pivot_longer(cols = -1,names_to = "cycle",
+               values_to = "OD") %>% 
+  pivot_wider(names_from = "position", values_from = "OD") 
+
+glimpse(LytB_Fd_FNR)
+
+
+
+Mean_treatment <- LytB_Fd_FNR %>% 
+  mutate(Mean_Mev=mean(c(A2,A3,A4)),
+         Mean_Rha_IPTG_Atc=mean(c(B2,B3,B4)),
+         Mean_IPTG_Atc=mean(c(C2,C3,C4)),
+         Mean_Rha=mean(c(D2,D3,D4)),
+         Mean_Rha_IPTG=mean(c(E2,E3,E4)),
+         Mean_Rha_Atc=mean(c(F2,F3,F4)),
+         Mean_Atc=mean(c(G2,G3,G4)),
+         Mean_Abs=mean(c(H2,H3,H4))) %>% 
+  select(A5,B5,C5,D5,E5,F5,G5,H5,Mean_Mev,Mean_Rha_IPTG_Atc,Mean_IPTG_Atc,
+         Mean_Rha,Mean_Rha_IPTG,Mean_Rha_Atc,Mean_Atc,Mean_Abs,cycle)
+
+ `
+   Mev_Abs <- Mean_treatment[,9]-Mean_treatment[,1]
+   Rha_IPTG_Atc_Abs <- Mean_treatment[,10]-Mean_treatment[,2]
+   IPTG_Atc_Abs <- Mean_treatment[,11]-Mean_treatment[,3]
+   Rha_Abs <- Mean_treatment[,12]-Mean_treatment[,4]
+   Rha_IPTG_Abs <- Mean_treatment[,13]-Mean_treatment[,5]
+   Rha_Atc_Abs <- Mean_treatment[,14]-Mean_treatment[,6]
+   Atc_Abs <- Mean_treatment[,15]-Mean_treatment[,7]
+   Abs_only <- Mean_treatment[,16]-Mean_treatment[,8]
+   
+   LytB_Fd_FNR_treatmentOD <- cbind(Mev_Abs,
+                                    Rha_IPTG_Atc_Abs,
+                                    IPTG_Atc_Abs,
+                                    Rha_Abs,
+                                    Rha_IPTG_Abs,
+                                    Rha_Atc_Abs,
+                                    Atc_Abs,
+                                    Abs_only)
+   view(LytB_Fd_FNR_treatmentOD)
+   
+ LytB_Fd_FNR_Data <- cbind(LytB_Fd_FNR[,1], LytB_Fd_FNR_treatmentOD[,1:8])
+ 
+ l1 <-  LytB_Fd_FNR_Data %>% 
+    pivot_longer(cols = -1,
+                 names_to = "Treatment",
+                 values_to = "OD") 
+   l1$viable_cells <- 14*l1$OD
+   
+   l1$Time <- gsub("x","", l1$cycle) #this removes x attached to the numbers in cycle so that I can convert the character variables to numeric without "NA" coercion.
+   
+   l1 <- l1 %>% 
+     mutate(Time=as.numeric(Time))
+```
+
+# Data visualization and modelling
+
+```{r}
+ggplot(l1, aes(Time,viable_cells, col=Treatment))+geom_point()+
+  geom_smooth(method = "lm")
+ 
+
+lm1 <- lm(viable_cells~Time*Treatment, data=l1)
+
+glm1 <- glm(viable_cells~Time*Treatment, data=l1)
+
+lm1
+
+tbl_regression(lm1)
+tbl_regression(glm1, exponentiate = TRUE)
+
+anova(lm1)
+```
+# E.coli growth assay for fldA complementation
+
+## Data import
+```{r}
+fldAs <- read_xlsx("../Ojo-Ajogu Akuh_fldA complementation.xlsx", sheet = "Sheet2", range="A65:BN163")%>%  
+clean_names() %>% 
+  rename(position=cycle_nr)  %>% 
+  filter(!(position %in% c("Time [s]","Temp. [°C]"))) %>% 
+  pivot_longer(cols = -1,names_to = "cycle",
+               values_to = "OD") %>% 
+  pivot_wider(names_from = "position", values_from = "OD") 
+
+
+
+fldA_Mean_treatment <- fldAs %>% 
+  mutate(Mean_Mev_EcfldA=mean(c(B2,B3,B4)),
+         Mean_Rha_Ara_EcfldA=mean(c(C2,C3,C4)),
+         Mean_Rha_EcfldA=mean(c(D2,D3,D4)),
+         Mean_Ara_EcfldA=mean(c(E2,E3,E4)),
+         Mean_Abs_EcfldA=mean(c(F2,F3,F4)),
+         Mean_Mev_NstfldA=mean(c(B6,B7,B8)),
+         Mean_Rha_Ara_NstfldA=mean(c(C6,C7,C8)),
+         Mean_Rha_NstfldA=mean(c(D6,D7,D8)),
+         Mean_Ara_NstfldA=mean(c(E6,E7,E8)),
+         Mean_Abs_NstfldA=mean(c(F6,F7,F8)),
+         Mean_Mev_ChfldA=mean(c(B9,B10,B11)),
+         Mean_Rha_Ara_ChfldA=mean(c(C9,C10,C11)),
+         Mean_Rha_ChfldA=mean(c(D9,D10,D11)),
+         Mean_Ara_ChfldA=mean(c(E9,E10,E11)),
+         Mean_Abs_ChfldA=mean(c(F9,F10,F11))) %>% 
+  select(Mean_Mev_EcfldA,Mean_Rha_Ara_EcfldA,Mean_Rha_EcfldA,
+         Mean_Ara_EcfldA,Mean_Abs_EcfldA,Mean_Mev_NstfldA,Mean_Rha_Ara_NstfldA,Mean_Rha_NstfldA,
+         Mean_Ara_NstfldA,Mean_Abs_NstfldA,Mean_Mev_ChfldA,Mean_Rha_Ara_ChfldA,Mean_Rha_ChfldA,
+         Mean_Ara_ChfldA,Mean_Abs_ChfldA,cycle) %>% 
+  pivot_longer(cols = 1:15,
+               names_to = "Treatment",
+               values_to = "OD")
+
+fldA_Mean_treatment$viable_cells <- 14*fldA_Mean_treatment$OD
+
+fldA_Mean_treatment$Time <- gsub("x","", fldA_Mean_treatment$cycle)
+
+fldA_Mean_treatment <- fldA_Mean_treatment %>% 
+  mutate(Time=as.numeric(Time))
+
+```
+
+# Data visualization and modelling
+```{r}
+ggplot(fldA_Mean_treatment, aes(Time,viable_cells, col=Treatment))+
+  geom_smooth(method = "lm")
+
+lm_fldA <- lm(viable_cells~Time*Treatment, data=fldA_Mean_treatment)
+
+tbl_regression(lm_fldA)
+
+```
+

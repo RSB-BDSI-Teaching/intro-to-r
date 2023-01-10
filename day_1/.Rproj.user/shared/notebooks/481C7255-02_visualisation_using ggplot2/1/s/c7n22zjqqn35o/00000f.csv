@@ -1,0 +1,7 @@
+"0","ggplot(cancer_df, aes(x=case_f, y = density))+"
+"0","  geom_boxplot(aes(fill = case_f))+"
+"0","  geom_jitter(width = 0.2, height = 1) +"
+"0","  facet_wrap(~ARM_f) + "
+"0","  theme_bw(base_size = 14)+"
+"0","  xlab('') + ylab('mammographic density') + "
+"0","  theme(legend.position = 'none')"

@@ -1,0 +1,2 @@
+"0","ggplot(data = cancer_df, mapping = aes(x = BMI, y = density, colour = case_f)) +"
+"0","  geom_point(alpha = 0.2)"

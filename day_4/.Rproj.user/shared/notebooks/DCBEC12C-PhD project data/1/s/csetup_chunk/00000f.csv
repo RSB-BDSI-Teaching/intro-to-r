@@ -1,0 +1,176 @@
+"0","library(tidyverse)"
+"0","library(readxl)"
+"0","library(janitor)"
+"0","library(lmerTest)"
+"2","Loading required package: lme4
+"
+"2","Loading required package: Matrix
+"
+"2","
+Attaching package: ‘Matrix’
+
+"
+"2","The following objects are masked from ‘package:tidyr’:
+
+    expand, pack, unpack
+
+"
+"2","
+Attaching package: ‘lmerTest’
+
+"
+"2","The following object is masked from ‘package:lme4’:
+
+    lmer
+
+"
+"2","The following object is masked from ‘package:stats’:
+
+    step
+
+"
+"0","library(ggpubr)"
+"0","install.packages(""gsubfn"")"
+"2","also installing the dependency ‘proto’
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/macosx/big-sur-arm64/contrib/4.2/proto_1.0.0.tgz'
+"
+"2","Content type 'application/x-gzip'"
+"2"," length 471590 bytes (460 KB)
+"
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","
+"
+"2","downloaded 460 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/macosx/big-sur-arm64/contrib/4.2/gsubfn_0.7.tgz'
+"
+"2","Content type 'application/x-gzip'"
+"2"," length 356518 bytes (348 KB)
+"
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","
+"
+"2","downloaded 348 KB
+
+"
+"1","
+"
+"1",""
+"1","The downloaded binary packages are in
+	/var/folders/4g/md97bt717cq5wttsm15w6nwr0000gn/T//RtmpvUQnUv/downloaded_packages"
+"1",""
+"1","
+"
+"0","library(gsubfn)"
+"2","Loading required package: proto
+"
+"2","Warning: unable to load shared object '/Library/Frameworks/R.framework/Resources/modules//R_X11.so':
+  dlopen(/Library/Frameworks/R.framework/Resources/modules//R_X11.so, 6): Library not loaded: /opt/X11/lib/libSM.6.dylib
+  Referenced from: /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/modules/R_X11.so
+  Reason: image not found"
+"2","tcltk DLL is linked to '/opt/X11/lib/libX11.6.dylib'
+"
+"2","Could not load tcltk.  Will use slower R code instead.
+"
+"0","library(gtsummary)"

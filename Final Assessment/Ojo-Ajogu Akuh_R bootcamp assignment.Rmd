@@ -1,0 +1,146 @@
+---
+title: "R boot camp assignment"
+author: "Ojo-Ajogu Akuh"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+Heitmeier et al., 2019 investigated some compounds for their ability to kill malaria parasite and found a compound (they called wu-1) as a potential drug for fighting malaria. The compound  affects the ability of the parasite to get sugar which it needs to survive.
+
+# Library import
+```{r}
+library(tidyverse)
+library(readxl)
+library(janitor)
+library(gtsummary)
+library(ggsignif)
+library(ggbump)
+```
+
+# Data import
+```{r}
+Drug <- read_xlsx("Data/pone.0216457.s004.xlsx", sheet = 3) %>% 
+  clean_names()%>% 
+  mutate(sd=c(1.07,1.86,1.85,1.09))
+
+glimpse(Drug)
+```
+
+# Data visualization
+```{r}
+ggplot(Drug,aes(y=ic50, x=drug, fill=drug))+geom_bar(stat = "identity", width = 0.4)+
+  geom_errorbar(aes(ymin=ic50-sd, ymax=ic50+sd), width=.2)+
+  ylab("50% inhibitory concentration")+
+  xlab("Drug candidates")
+```
+This bar graph shows the ability of the selected drug candidates to inhibit the growth of malaria parasite by affecting something that the parasite uses to transport sugar (called pf-HT). Wu-5 inhibit parasite growth more at low concentration than the others followed by Wu-2, Wu-1 and then Wu-3 in that order.
+
+## Data import and wrangling for figure 2
+```{r}
+Fig2 <- read_xlsx("Data/pone.0216457.s004.xlsx", sheet = "Fig 2", skip = 1) %>%
+  clean_names() %>% 
+  rename(mean_1=ave_5m_mwu_1,
+          mean_2=ave_5m_mwu_2,
+         mean_3=ave_10m_mwu_3,
+         mean_5=ave_2_5m_mwu_5,
+         mean_cb=ave_200m_mcb,
+         sem_1=sem_wu_1,
+         sem_2=sem_wu_2,
+         sem_3=sem_wu_3,
+         sem_5=sem_wu_5,
+         sem_cb=sem_cb) %>%
+   pivot_longer(cols = 2:11,
+               names_to = c("stat","Drug"),
+               names_sep = "_",
+               values_to = "DG_Uptake") %>% 
+  pivot_wider(names_from = "stat",
+              values_from = "DG_Uptake") %>% 
+  mutate(Drug=factor(Drug, labels = c("5μMWU-1",
+                                      "5μMWU-2",
+                                    "10μMWU-3",
+                                    "2,5μMWU-5",
+                                  "200μMCB")))
+```
+
+## Visualization of figure 2
+```{r}
+ggplot(Fig2,aes(y=mean, x=Drug, fill=transporters))+geom_col(position = "dodge")+
+  geom_errorbar(aes(ymin=mean-sem, ymax=mean+sem),width=.2,position = position_dodge(.9))+
+  ylab("2-DG Uptake (% Inhbition)")+
+  xlab("Drug candidates")+
+  geom_hline(yintercept = 50)
+```
+
+In the above figure, I have shown the ability of the drug candidates to selectively inhibit parasites' sugar transport without inhibiting hosts' sugar transporters. Even though WU-5 has the lowest iC50 value, based on the selectivity study, WU-1 appears to be a better drug candidate because it is more selective for the parasites' sugar transporter without affecting the host
+
+
+
+
+# Figure 6
+
+## Data import
+```{r}
+Fig6 <- read_xlsx("Data/pone.0216457.s004.xlsx", sheet = "Fig6_M") %>% 
+  pivot_longer(cols = 2:5,
+               names_to = "Fructose_concentration",
+               values_to = "v")
+```
+
+
+## Data visualization
+```{r}
+ggplot(Fig6, aes(Concentration, v, col=Fructose_concentration))+geom_point()+
+  geom_line(aes(group=Fructose_concentration))
+
+ggplot(Fig6, aes(Concentration, v, col=Fructose_concentration))+geom_smooth(method = "lm")+
+  geom_point()+
+  ylim(-0.002,0.008)+
+  scale_x_continuous()+
+  xlab("WU-1 (μM)")+
+  ylab("1/v (min*mg)/pmol")
+
+
+Fig6 %>%
+  mutate(Fructose_concentration=factor(Fructose_concentration, levels = c("250 uM D-frc","500 uM D-frc","1000 uM D-frc","2000 uM D-frc"))) %>% 
+  ggplot( aes(Fructose_concentration, v, col=Fructose_concentration))+geom_boxplot()+
+   ylab("1/v (min*mg)/pmol")+
+  xlab("Fructose concentration")
+ 
+
+```
+These plots shows that WU-1 is a non-competitive inhibitor of the sugar transporter in the presence of fructose (a form of sugar). This means that WU-1 allow the sugar transporter to bind to the sugars but will not allow the transporter to deliver it to the parasite.The boxplot shows that the rate of transport of the sugars varies with their concentration
+
+# Fig. 7
+```{r}
+Fig7c <- read_xlsx("Data/pone.0216457.s004.xlsx", sheet = "Fig 7C", range = "A5:F12") %>% 
+  rename(Time=sec)
+```
+## Data visualization
+```{r}
+ggplot(Fig7c,aes(Time,Ave))+geom_smooth()+
+  geom_point()+
+  geom_errorbar(aes(ymin=Ave-SEM, ymax=Ave+SEM), width=0.2)+
+  ylab("Glucose Uptake (pmol/μg PfHT")+
+  xlab("Time (sec)")
+```
+This plot shows the rate of glucose uptake with time.There is an increase in glucose uptake with time and then it begins to plateau above 15 pmol.
+
+# Tables
+
+
+```{r}
+T1 <- Fig2 %>% 
+  filter(mean>=10) %>% 
+  group_by(transporters) %>% 
+  summarise(count=n())
+
+T2 <- Fig2 %>% 
+  filter(mean>=10) %>% 
+  group_by(Drug) %>% 
+  summarise(count=n())
+```
+
+I used the data in Fig2 to create two tables; T1 shows the number of drugs (count) targeting each host sugar transporter while in T2, the output shows the number of host transporters targeted by each drug at a mean threshold of 10. WU-1 has the least count, further justifying it's choice as a drug candidate.  
+
+
+

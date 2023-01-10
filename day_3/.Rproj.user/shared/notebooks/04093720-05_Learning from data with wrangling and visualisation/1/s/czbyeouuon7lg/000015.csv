@@ -1,0 +1,3 @@
+"0","nicotine_lat %>%"
+"0","  select(prenatal_exposure, sex, weight) %>%"
+"0","tbl_summary(by = prenatal_exposure)"

@@ -1,0 +1,46 @@
+"0","immune1 <- read_csv(""data/Overview_20220413_CD45freq_recomp_counts.csv"")%>%  "
+"0","select(1:7) %>%"
+"0","  rename(specimen = ""...1"") %>%"
+"0","  filter(str_detect(specimen, ""PAD4"")) %>%"
+"0","  mutate(group = c(rep(""WT"",3), rep(""PAD4KO"",3)))"
+"2","New names:
+* `` -> ...1
+* `` -> ...8
+"
+"1","[1mRows: [22m[34m8[39m [1mColumns: [22m[34m8[39m
+"
+"1","[36m──[39m [1mColumn specification[22m [36m─────────────────────────────────────────────────[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (1): ...1
+[32mdbl[39m (6): Cells/Single Cells/Live/CD45+ | Count, Cells/Single Cells/Li...
+[33mlgl[39m (1): ...8
+"
+"1","
+[36mℹ[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mℹ[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"0","colnames(immune1) <- c(""specimen"", ""CD45pos"", ""immature_neutrophils"", ""mature_neutrophils"", ""bcells"", ""CD4posTcells"", ""CD4negTcells"", ""group"")"
+"0",""
+"0","immune1 <- immune1 %>%"
+"0","  mutate(specimen1 = c(""WT1"",""WT2"",""WT3"",""PAD4KO1"",""PAD4KO2"",""PAD4KO3""))%>%"
+"0","  select(specimen1, group,CD45pos, immature_neutrophils, mature_neutrophils, bcells, CD4posTcells, CD4negTcells )"
+"0","glimpse(immune1)"
+"1","Rows: 6"
+"1",""
+"1","
+"
+"1","Columns: 8"
+"1",""
+"1","
+"
+"1","$ specimen1            [3m[38;5;246m<chr>[39m[23m ""WT1"", ""WT2"", ""WT3"", ""PAD4KO1"", ""PAD4KO2"",…
+$ group                [3m[38;5;246m<chr>[39m[23m ""WT"", ""WT"", ""WT"", ""PAD4KO"", ""PAD4KO"", ""PAD…
+$ CD45pos              [3m[38;5;246m<dbl>[39m[23m 32899, 40705, 42186, 36425, 24016, 31148
+$ immature_neutrophils [3m[38;5;246m<dbl>[39m[23m 13, 4, 8, 16, 9, 8
+$ mature_neutrophils   [3m[38;5;246m<dbl>[39m[23m 123, 71, 123, 61, 76, 77
+$ bcells               [3m[38;5;246m<dbl>[39m[23m 18683, 21138, 22036, 19675, 13608, 17236
+$ CD4posTcells         [3m[38;5;246m<dbl>[39m[23m 5065, 7083, 7285, 6490, 4435, 5665
+$ CD4negTcells         [3m[38;5;246m<dbl>[39m[23m 5193, 7328, 6945, 5383, 3296, 4408"
+"1",""
+"1","
+"

@@ -1,0 +1,4 @@
+"0","eat_mass_sum<-eat_mass%>%"
+"0","  group_by(temp_trt,trial,yolk_trt) %>%"
+"0","  summarise(mean_mass=mean(mass,na.rm=TRUE))"
+"2","`summarise()` has grouped output by 'temp_trt', 'trial'. You can override using the `.groups` argument."

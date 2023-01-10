@@ -1,0 +1,4 @@
+"0","immune1_long <- immune1 %>%"
+"0","  mutate(Other = CD45pos - (immature_neutrophils + mature_neutrophils + bcells+CD4posTcells+CD4negTcells)) %>%"
+"0","  pivot_longer(cols = 4:9, names_to = ""cell_type"", values_to = ""count"")%>%"
+"0","  mutate(percent = count/CD45pos*100)"

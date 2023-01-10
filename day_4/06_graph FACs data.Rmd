@@ -1,0 +1,119 @@
+---
+title: "Comparing immune cell response in PAD4 KO cells"
+output: html_document
+---
+
+## Introduction and Background
+
+Add a paragraph here.
+
+```{r message=FALSE}
+library(tidyverse)
+library(lmerTest)
+library(ggResidpanel)
+```
+
+Import data, and remove Mean and SD rows. There are a total of 6 samples.
+The first 3 samples are WT; the next 3 samples are PAD4KO.
+
+Also, arrange columns as (1) identifiers, (2) Experimental factors, (3) response.
+
+```{r message=FALSE}
+immune1 <- read_csv("data/Overview_20220413_CD45freq_recomp_counts.csv") %>%
+  select(1:7) %>%
+  rename(specimen = "...1") %>%
+  filter(str_detect(specimen, "PAD4")) %>%
+  mutate(group = c(rep("WT",3), rep("PAD4KO",3)))
+
+colnames(immune1) <- c("specimen", "CD45pos", "immature_neutrophils", "mature_neutrophils", "bcells", "CD4posTcells", "CD4negTcells", "group")
+
+immune1 <- immune1 %>%
+  select(specimen, group,CD45pos, immature_neutrophils, mature_neutrophils, bcells, CD4posTcells, CD4negTcells )
+
+glimpse(immune1)
+```
+
+
+For each sample, we would like to calculate Percent CD45pos cells for each immune cell type. 
+Suggested approach: re-structure the data using pivot_longer() and then calculate percentages in 1 line.Notice that since percentages should add up to 100, first create new variable called Other = CD45pos - all_other_named_types.
+```{r}
+immune1_long <- immune1 %>%
+  mutate(Other = CD45pos - rowSums(.[4:8])) %>%
+  pivot_longer(cols = c(4:9), names_to = "cell_type",
+               values_to = "count") %>%
+  mutate(percent = count/CD45pos*100)
+```
+
+Now create a stacked column graph for each specimen:
+```{r}
+ggplot(immune1_long, aes(x = specimen, y = percent, fill = cell_type))+
+  geom_col()
+```
+
+Re-arrange the stacks by re-ordering the levels of Cell_type. Also, relabel the x-axis to be able to see which samples are WT and PAD4KO. The stacks are ordered so that Level 1 is on the top and Level 6 is on the bottom. 
+```{r}
+immune1_long <- immune1_long %>%
+  mutate(cell_type = factor(cell_type, levels = c("Other",
+                                                  "mature_neutrophils",
+                                                  "immature_neutrophils",
+                                                  "CD4posTcells",
+                                                  "CD4negTcells",
+                                                  "bcells")),
+         specimen_1 = rep(c("WT1","WT2","WT3","PAD4KO1","PAD4KO2","PAD4KO3"),
+                          each = 6))
+
+ggplot(immune1_long, aes(x = specimen_1, y = percent, fill = cell_type))+
+  geom_col() +
+  ggtitle("Cell populations in pre-bleed day -7 blood as a percentage of CD45+ cells") +
+  theme_classic()
+```
+
+We can also average them first by group, and create a stacked column chart for each group (WT vs PAD4KO). 
+```{r}
+immune1_avg <- immune1_long %>%
+  group_by(cell_type, group) %>%
+  summarise(percent = mean(percent), .groups = "drop") 
+
+
+  ggplot(immune1_avg, aes(x = group, y = percent, fill = cell_type))+
+  geom_col() +
+  theme_classic()
+  
+  immune1_avg
+  
+```
+
+The easiest way to compare statistically is to choose a cell type and compare the percentage of that cell type. If you want to be more sophisticated, you can fit a model for count data (negative binomial model) and then we can compare the cell type composition. Or we can compare the composition using compositional data analysis where we transform the compositional data to data that is multivariate normal. Personally I would choose a model that people in your field are familiar with.
+
+```{r}
+lm1 <- lmer(sqrt(percent)~cell_type*group + (1|specimen), data = immune1_long)
+resid_panel(lm1)
+anova(lm1)
+```
+
+
+Estimated percents for each group/cell_type
+```{r}
+library(emmeans)
+emmeans(lm1, pairwise~ group|cell_type, type = "response")
+```
+
+
+We can fit a model to individual cell types. Check that they are consistent with the larger model. For example:
+```{r}
+lm_CD4neg <- lm(percent~group, data = immune1_long %>%
+            filter(cell_type == "CD4negTcells"))
+#resid_panel(lm2)
+anova(lm_CD4neg)
+emmeans(lm_CD4neg, pairwise~group)
+```
+
+```{r}
+lm_bcells <- lm(percent~group, data = immune1_long %>%
+            filter(cell_type == "bcells"))
+#resid_panel(lm2)
+anova(lm_bcells)
+emmeans(lm_bcells, pairwise~group)
+```
+
+Think about how to report your conclusions graphically or in a table.

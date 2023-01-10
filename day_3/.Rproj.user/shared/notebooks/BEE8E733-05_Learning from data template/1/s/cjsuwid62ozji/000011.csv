@@ -1,0 +1,4 @@
+"0","nicotine_avg %>%"
+"0","  group_by(prenatal_exposure, sex) %>%"
+"0","  summarise(weight = mean(weight), sd_weight = sd(weight))"
+"2","`summarise()` has grouped output by 'prenatal_exposure'. You can override using the `.groups` argument."

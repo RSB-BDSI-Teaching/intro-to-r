@@ -1,0 +1,8 @@
+"0",""
+"0","plot4 <- ggplot(curve_fitting, aes(od_chfld_a,cfu_chfld_a))+geom_point()+"
+"0","  geom_smooth(method = ""lm"")+"
+"0","  stat_regline_equation()+"
+"0","  ylab(""Viable cells, *10^10 (cells/ml)"")+"
+"0","  xlab(""OD 600nm"")"
+"0",""
+"0","plot4"

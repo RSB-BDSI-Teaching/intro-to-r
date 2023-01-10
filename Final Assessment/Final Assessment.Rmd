@@ -1,0 +1,256 @@
+---
+title: "Final Assessment"
+author: "Jesus Ruiz Flores"
+date: "2022-11-12"
+output: word_document
+---
+
+I compared the CO2 and Methane Emissions of eighteen countries from 1990 to 2019.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Import libraries.
+
+```{r}
+library(tidyverse)
+library(gtsummary)
+library(readxl)
+library(janitor)
+library(ggplot2)
+library(ggbeeswarm) 
+library(forcats)
+```
+
+I downloaded the World Development Indicators data from the World Bank website (https://www.worldbank.org/en/home). 
+
+I arranged data in the sheet: "Emissions".
+
+```{r}
+Emissions <- read_xls("data/API_19_DS2_en_excel_v2_4700532.xls", sheet = "Emissions")%>%
+  clean_names()%>%
+  rename(Country = "country_name",
+         Code = "country_code",
+         Indicator = "indicator_name",
+         `1990` = "x1990",
+         `1991` = "x1991",
+         `1992` = "x1992",
+         `1993` = "x1993",
+         `1994` = "x1994",
+         `1995` = "x1995",
+         `1996` = "x1996",
+         `1997` = "x1997",
+         `1998` = "x1998",
+         `1999` = "x1999",
+         `2000` = "x2000",
+         `2001` = "x2001",
+         `2002` = "x2002",
+         `2003` = "x2003",
+         `2004` = "x2004",
+         `2005` = "x2005",
+         `2006` = "x2006",
+         `2007` = "x2007",
+         `2008` = "x2008",
+         `2009` = "x2009",
+         `2010` = "x2010",
+         `2011` = "x2011",
+         `2012` = "x2012",
+         `2013` = "x2013",
+         `2014` = "x2014",
+         `2015` = "x2015",
+         `2016` = "x2016",
+         `2017` = "x2017",
+         `2018` = "x2018",
+         `2019` = "x2019")%>%
+  mutate(Indicator_f = factor(Indicator, labels = c("CO2", "Methane")))
+  
+
+str(Emissions) 
+```
+
+
+
+```{r}
+glimpse(Emissions)
+
+```
+
+
+
+
+```{r}
+
+tibble(Emissions)
+
+```
+
+In the next table I summarised the mean levels, in kt, of "Methane" and "CO2" of each country from 1990 to 2019.
+
+
+```{r}
+
+Emissions%>%
+  group_by(`Country`,`Indicator_f`)%>%
+  summarise(`Mean emissions from 1990 to 2019 (kt)` = mean(`1990`:`2019`), 
+            `Sd` = sd(`1990`:`2019`))
+
+```
+
+
+
+In the next table I summarised the countries that polluted, in average, with more than 200000 kt of CO2 from 1990 to 2019
+
+
+```{r}
+
+Emissions%>%
+  group_by(`Country`,`Indicator_f`)%>%
+  filter(mean(`1990`:`2019`)>200000)%>%
+  filter(Indicator_f== "CO2")%>%
+  summarise(`Mean emissions from 1990 to 2019 (kt)` = mean(`1990`:`2019`))
+    
+             
+```
+
+
+In the next table I summarised, in ascending order, the levels of CO2 of all the countries from 1990 to 2019. It is very clear that developed, populated and industrialized countries polluted more.
+
+```{r}
+
+Emissions%>%
+  group_by(`Country`,`Indicator_f`)%>%
+  filter(Indicator_f== "CO2")%>%
+  summarise(`Mean emissions from 1990 to 2019 (kt)` = mean(`1990`:`2019`))%>%
+              arrange(`Mean emissions from 1990 to 2019 (kt)`)
+              
+             
+```
+
+
+I decided to make a plot to view the relationship between CO2 and Methane levels against the countries in 2008 (a plot for each one).
+
+```{r}
+
+Emissions_CO2 <- Emissions%>%
+  filter(Indicator_f == "CO2")
+
+Emissions_Methane <- Emissions%>%
+  filter(Indicator_f == "Methane")
+  
+Emissions_Methane%>%
+  ggplot(mapping = aes(x = reorder(Country, -`2008`), y = `2008`, col = Indicator_f))+
+  geom_col(fill = "purple", colour = "blue")+
+  scale_y_log10()+
+  theme(axis.text.x = element_text(angle = 90))+
+  labs(title = "Comparison of Methane levels in 2008",
+        x = "Countries", y = "Methane levels (kt)")
+
+```
+
+
+```{r}
+Emissions_CO2%>%
+  ggplot(mapping = aes(x = reorder(Country, -`2008`), y = `2008`, col = Indicator_f))+ 
+  geom_col(fill = "orange", colour = "purple", position = "dodge")+ 
+  scale_y_log10()+
+  theme(axis.text.x = element_text(angle = 90))+
+  labs(title = "Comparison of CO2 levels in 2008",
+        x = "Countries", y = "CO2 levels (kt)")
+
+
+```
+
+Then, I created Emissions_long using the "pivot longer" to arrange the data and having a wide visualization of them.
+
+
+```{r}
+Emissions_long <- Emissions%>%
+  pivot_longer(cols = 4:33,
+               names_to = c("Year"),
+               values_to = "Methane and CO2 Emissions (kt)")
+  
+
+Emissions_long%>%
+  filter(`Methane and CO2 Emissions (kt)` > 485700)
+```
+
+
+I created the next Box plot comparing the two indicators, CO2 and Methane, versus the whole countries.By visualizing the plot we see that countries like Belgium, Burkina Faso and Andorra had a considerable variation of polluting levels in that period of time. In countries like Benin of Albania, they were consistent with their pollution levels, but in some years they were polluting less. 
+
+```{r}
+
+
+Emissions_long_CO2 <- Emissions_long%>%
+  filter(Indicator_f == "CO2")
+
+Emissions_long_Methane <- Emissions_long%>%
+  filter(Indicator_f == "Methane")
+
+
+ggplot(data = Emissions_long, mapping = aes(x = reorder(Country, -`Methane and CO2 Emissions (kt)`), y = `Methane and CO2 Emissions (kt)`))+ 
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90))+
+  scale_y_log10()+
+  labs(title = "Comparison of CO2 and Methane levels of each country from 1990 to 2019.",
+        x = "Country", y = "CO2 and Methane levels (kt)")
+
+
+```
+
+
+And I also learned how to make a subset of data and make a plot of it.
+
+```{r}
+
+Angola <- Emissions_long %>%
+  filter(Country == "Angola", Indicator_f == "Methane") %>%
+  rename(`Methane Emissions (kt)` = "Methane and CO2 Emissions (kt)")
+
+
+ggplot(data = Angola, mapping = aes(x = Year, y = `Methane Emissions (kt)`, group = 1, col = Country)) + 
+  geom_line(colour = "purple")+
+  geom_point()+
+  theme(axis.text.x = element_text(angle = 90))
+
+
+```
+
+I decided to compare the levels of CO2 and Methane of Australia from 1990 to 2019.
+
+```{r}
+
+Australia <- Emissions_long %>%
+  filter(Country == "Australia")%>%
+  rename(`Methane and CO2 Emissions of Australia (kt)` = "Methane and CO2 Emissions (kt)")
+
+ggplot(data = Australia, mapping = aes(x = Year, y = `Methane and CO2 Emissions of Australia (kt)`,colour = Indicator_f, fill = Indicator_f, group = Indicator_f)) + 
+  geom_line(colour = "blue")+
+  geom_point()+
+  theme(axis.text.x = element_text(angle = 90))
+
+```
+
+
+
+And comparing just the CO2 levels of two countries, in this case, Austria and Belgium.
+
+
+```{r}
+
+`Austria and Belgium` <- Emissions_long %>%
+  filter(Country == "Austria"| Country == "Belgium", Indicator_f == "CO2")%>%
+  rename(`CO2 levels (kt)` = "Methane and CO2 Emissions (kt)")
+
+
+ggplot(data = `Austria and Belgium`, mapping = aes(x = Year, y = `CO2 levels (kt)`, group = Country, colour = Country)) +
+  geom_line()+
+  geom_point(size = 2.5, shape = 7.8)+
+  scale_y_log10()+
+  theme(axis.text.x = element_text(angle = 90))
+
+```
+
+
+
+

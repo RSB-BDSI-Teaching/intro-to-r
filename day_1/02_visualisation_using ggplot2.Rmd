@@ -1,0 +1,243 @@
+---
+title: "BDSI R Workshop -- Data Visualisation"
+author: "Robert Cope and Terry Neeman"
+date: "2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Data setup
+
+We will use the same breast cancer data as the first session.
+
+```{r}
+library(tidyverse)
+cancer_df <- read_csv('data/Cuzick_2010_breast_cancer_density.csv')
+
+glimpse(cancer_df)
+```
+
+
+## ggplot2
+
+Let us start by making a plot.
+
+```{r}
+ggplot(data = cancer_df, mapping = aes(x = AGE, y = density)) +
+  geom_point()
+```
+
+A plot always needs (at least) these three components. 
+1. data (in the form of a tibble or data frame);
+2. a mapping -- the aes() function, which stands for aesthetic, that tells R how to map data coordinates to the plot; and,
+3. a geometry (which always starts with geom_) which determines the shape of the plot.
+
+### Exercise -- what do you notice about this plot?
+
+- the points are on a grid!! i.e., both age and density take very specific values.
+- more subtle, the points are almost certainly on top of each other.
+
+### Exercise -- plot density on the y axis and BMI on the x axis.
+
+```{r}
+ggplot(data = cancer_df, mapping = aes(x = BMI, y = density)) +
+  geom_point()
+```
+
+An important tool is saving your plots. Create a 'figs' folder. Save your most recent plot with ggsave() (you can do this in different formats). Note that width and height are in inches.
+
+```{r eval=FALSE}
+ggsave('figs/BMI_density.png', width = 6, height = 4)
+```
+
+If you look at the help file for your geom (or the cheatsheet), you can see what aesthetics you can modify.
+
+```{r}
+?geom_point
+```
+
+There are two things we can do. If we just want to do something to every point, we don't include it in an aes() statement, and we just set it to what we want. E.g.,
+
+```{r}
+ggplot(data = cancer_df, mapping = aes(x = BMI, y = density)) +
+  geom_point(colour = 'red')
+```
+
+But if we want it to depend on the data, it has to go in the aes() statement.
+
+```{r}
+ggplot(data = cancer_df, mapping = aes(x = BMI, y = density, colour = case)) +
+  geom_point()
+```
+
+Note that in the first case, we used quotation marks because it was a string, whereas in the second there were no quotations because it is a variable.
+
+Note also that you get a legend by default.
+
+### Exercise -- change the transparency (alpha) of the points (to the same, fixed value)
+
+
+```{r}
+ggplot(data = cancer_df, mapping = aes(x = BMI, y = density, colour = factor(case))) +
+  geom_point(alpha = 0.3)
+```
+
+(This plot is terrible/confusing but it does show you what you can do)
+
+## Box plots
+
+Boxplots were developed to summarise the overall distribution of the data. In this case-control study, we may be interested to explore whether cases have on average lower breast density than Control patients. Boxplots can offer some insight into this question. We can super-impose the data over the boxplots.
+
+```{r}
+ggplot(cancer_df, aes(x= factor(case), y = density, col = factor(case)))+
+  geom_boxplot()+
+  geom_jitter(alpha = 0.2)
+```
+
+A boxplot is a five-number summary of a data distribution, and may not capture the salient features of a distribution (e.g. if the distribution is bimodal). Violin plots can be better at showing some of the "local" concentration areas of a distribution.
+What do you think?
+
+
+```{r}
+ggplot(cancer_df, aes(x= factor(case), y = density, col = factor(case)))+
+  geom_violin()+
+  geom_jitter(alpha = 0.2)
+```
+
+### More on factors
+
+One thing you will notice about these data is that case and ARM are numbers, but they always take specific values. This is because they are actually factors! For case, 1 indicates they were positive for breast cancer within the following year, and zero indicates they were not. For ARM, 1 indicates they received the placebo and 2 indicates they received the Tamoxifen. This is a relatively common way to create data (though alternatively the authors could have used text labels in their spreadsheet which may have been cleaer). We should recode these, and make them factors. 
+
+```{r}
+cancer_df <- cancer_df %>%
+  mutate(case_f = factor(case, labels = c("Control", "Case")),
+         ARM_f = factor(ARM, labels = c("Placebo", "Tamoxifen")))
+str(cancer_df)
+
+```
+
+Once you've re-coded, you should check that you did it correctly.
+```{r}
+with(cancer_df, table(case, case_f))
+with(cancer_df, table(ARM, ARM_f))
+```
+
+We can make the boxplot clearer by using the factors to label the violin:
+```{r}
+ggplot(cancer_df, aes(x= case_f, y = density, col = case_f))+
+  geom_violin()+
+  geom_jitter(alpha = 0.2)
+```
+There are actually 4 populations: Cases and controls for each of the treatment groups. Explore how we can visualise the four density distributions. Here are some ideas. Do any of these exploratory plots help us understand if density distribution is different between cases and controls?
+```{r}
+ggplot(cancer_df, aes(x= case_f, y = density, col = ARM_f))+
+  geom_violin()+
+  geom_point(alpha = 0.2,position = position_dodge(width = 0.7))
+```
+
+```{r}
+ggplot(cancer_df, aes(x= case_f, y = density, col = ARM_f))+
+  geom_violin()+
+  geom_point(alpha = 0.2,position = position_dodge(width = 0.7))+
+  facet_wrap(~ARM_f)
+```
+
+## Labels, legends, theme, etc.
+
+
+```{r}
+ggplot(cancer_df, aes(x=case_f, y = density))+
+  geom_boxplot(aes(fill = case_f))+
+  geom_jitter(width = 0.2, height = 1) +
+  facet_wrap(~ARM_f) + 
+  theme_bw(base_size = 14)+
+  xlab('') + ylab('mammographic density') + 
+  theme(legend.position = 'none')
+```
+
+Lets save it.
+
+```{r eval=FALSE}
+ggsave('figs/density_by_case_and_treatment.png',width = 6, height = 4)
+```
+
+
+The quickest reference (but it is quite dense) is the ggplot cheat sheet. I tend to find it by just googling 'ggplot cheat sheet' but you can find it here:
+
+https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf
+
+
+
+
+## Group Exercise
+
+Recall this figure:
+
+```{r}
+ggplot(data = cancer_df, mapping = aes(x = BMI, y = density, colour = case_f)) +
+  geom_point(alpha = 0.2)
+```
+
+at the moment it is not particularly informative. See if you can learn more about this trend by (a) trying different facets and (b) adding ```geom_smooth()``` to the plot. Experiment with this and any layout settings you like until you produce something you are happy with, then save it. If you want to try something more complex, you could try the ```cut()``` function (check the help file) with the AGE variable.
+
+Here are some questions you can explore:
+
+Does breast density change as BMI increases?
+Is that association case-specific? or treatment-specific?
+Is that association similar for women of different ages?
+
+
+### possible solutions
+
+
+There are a few things we could do with this. ```geom_smooth()``` adds a line of best fit to the data (there are various things you can do with this, the default allows a lot of flexibility).
+
+```{r}
+ggplot(data = cancer_df, mapping = aes(x = BMI, y = density, colour = case_f)) +
+  geom_point(alpha = 0.2) +
+  facet_wrap(~ARM_f, ncol = 1)+
+  theme(legend.title=element_blank(), legend.position = 'top') +
+  geom_smooth()
+```
+
+That isn't bad and maybe tells us something!? Perhaps we could also consider the impact of age as well. To do this, we might want to split age into bins because it will be hard to visualise in the current setup.
+
+```{r}
+cancer_df$age_bin <- cut(cancer_df$AGE,c(25,45,55,75))
+
+ggplot(data = cancer_df, mapping = aes(x = BMI, y = density, colour = case_f)) +
+  geom_point(alpha = 0.2) +
+  facet_grid(age_bin~ARM_f)+
+  theme(legend.title=element_blank(), legend.position = 'top') +
+  geom_smooth()
+```
+
+This is a lot of information! And takes a bit to interpret. You should always try different things to get an idea of what you think could be better.
+
+
+```{r}
+
+ggplot(data = cancer_df, mapping = aes(x = BMI, y = density, colour = age_bin)) +
+  geom_point(alpha = 0.4) +
+  facet_grid(case_f~ARM_f)+
+  theme(legend.title=element_blank(), legend.position = 'top') +
+  geom_smooth(alpha = 0.2) + 
+  theme_minimal()
+```
+
+This seems to indicate that older women have higher mammographic density. And it is a little hard to interpret what is going on with the treatment and cancer. 
+
+
+# Take home messages
+
+- The learning curve is steep -- but as you get used to the syntax + your data, it gets easier.
+- Don't rush to the final plot, build up what you want in steps.
+- Think about what you want to show, try different ideas, iterate.
+- consider the ggplot2 cheat sheet: https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf
+- a more detailed resource that may help is the R graphics cookbook: https://r-graphics.org/
+
+
+

@@ -1,0 +1,6 @@
+"0","eat_mass %>%"
+"0","  filter(!is.na(yolk_trt)) %>%"
+"0","ggplot(aes(x = trial, y = crickets, col = interaction(yolk_trt, temp_trt)))+"
+"0","  geom_point()+"
+"0","  geom_line(aes(group = lizard_ID))+"
+"0","  facet_grid(yolk_trt ~ temp_trt)"

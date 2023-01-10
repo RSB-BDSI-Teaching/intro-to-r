@@ -1,0 +1,4 @@
+"0","library(GGally)"
+"0","Dieback2022 %>%"
+"0","  select(`Pairing Approach`,`Crown _Size`,Foliar_Density,Foliar_Damage, Epicormic_Growth, Dead_Branches, Dieback_Scores) %>%"
+"0","  ggpairs(columns = 2:7, aes(col = `Pairing Approach`))"
