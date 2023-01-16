@@ -1,7 +1,7 @@
 ---
 title: "BDSI R Workshop -- Data Visualisation"
 author: "Robert Cope and Terry Neeman"
-date: "2022"
+date: "2023"
 output: html_document
 ---
 
@@ -181,7 +181,7 @@ ggplot(data = cancer_df, mapping = aes(x = BMI, y = density, colour = case_f)) +
   geom_point(alpha = 0.2)
 ```
 
-at the moment it is not particularly informative. See if you can learn more about this trend by (a) trying different facets and (b) adding ```geom_smooth()``` to the plot. Experiment with this and any layout settings you like until you produce something you are happy with, then save it. If you want to try something more complex, you could try the ```cut()``` function (check the help file) with the AGE variable.
+At the moment it is not particularly informative. See if you can learn more about this trend by (a) trying different facets and (b) adding ```geom_smooth()``` to the plot. Experiment with this and any layout settings you like until you produce something you are happy with, then save it. If you want to try something more complex, you could try the ```cut()``` function (check the help file) with the AGE variable.
 
 Here are some questions you can explore:
 
