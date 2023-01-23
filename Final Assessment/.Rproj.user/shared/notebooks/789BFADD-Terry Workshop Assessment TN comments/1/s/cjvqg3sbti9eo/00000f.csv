@@ -1,5 +1,0 @@
-"0","#tbl_summary(Dieback2022)"
-"0",""
-"0","Dieback2022 %>%"
-"0","  select(-c(Health, `Tree No`)) %>%"
-"0","  tbl_summary(by = Site)"

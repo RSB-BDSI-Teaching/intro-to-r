@@ -1,4 +1,0 @@
-"0","ggplot(eat_mass, aes(x = trial, y = mass, col = interaction(yolk_trt, temp_trt)))+"
-"0","  geom_point()+"
-"0","  geom_line(aes(group = lizard_ID))+"
-"0","  facet_grid(yolk_trt ~ temp_trt)"

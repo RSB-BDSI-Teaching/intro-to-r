@@ -1,4 +1,0 @@
-"0","eat_crickets_sum<-eat_mass%>%"
-"0","  group_by(temp_trt,trial,yolk_trt) %>%"
-"0","  summarise(mean_crickets=mean(crickets,na.rm=TRUE))"
-"2","`summarise()` has grouped output by 'temp_trt', 'trial'. You can override using the `.groups` argument."
