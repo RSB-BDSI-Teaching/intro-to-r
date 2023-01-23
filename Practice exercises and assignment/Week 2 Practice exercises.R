@@ -34,7 +34,7 @@ glimpse(survey1)
 #' Now re-create the table. Include only the columns
 #' Marital status, Reported Income, Party ID and Religion.
 #' Re-label the variables in the table and make them bold.
- 
+
 
 #' 2. Choose multiple years (e.g. 2008, 2012 and 2016) and create
 #' a similar table with a column for each year. (hint by=year)
