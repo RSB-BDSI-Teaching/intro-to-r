@@ -89,7 +89,7 @@ survey3 <- survey1 %>%
 survey2 %>%
   filter(year == 2010) %>%
   select(marital, relig1) %>%
-  tbl_summary(
+  tbl_summary()
     label = list(marital ~ "Marital Status",
                  relig1 ~ "Religion")
   ) %>%
@@ -104,32 +104,36 @@ survey3 %>%
   ) %>%
   bold_labels()
 
+
+
 #' 2. Choose multiple years (e.g. 2008, 2012 and 2016) and create
 #' a similar table with a column for each year. (hint by=year)
 
-survey2 %>%
-  filter(year %in% c(2008,2010,2012)) %>%
+survey3 %>%
+  filter(year == 2008 | year == 2010 | year == 2012) %>%
   select(year, marital, relig1) %>%
   tbl_summary( by = year,
     label = list(marital ~ "Marital Status",
                  relig1 ~ "Religion")
   ) %>%
   bold_labels()
+
 #' 3. Create a graphic in ggplot that shows mean TV hours grouped by religion.
 #' Re-arrange the religion factor to be ordered by increasing mean TV hours.
 
 
-survey2 %>%
-  filter(relig1 != ".") %>%
+survey3 %>%
+  filter(relig1 != "Missing") %>%
   group_by(relig1)%>%
   summarise(N = n(),
             mean_TV_hours = mean(tvhours, na.rm = TRUE),
             se_TV_hours = sd(tvhours, na.rm = TRUE)/sqrt(N) )%>%
-  ggplot(aes(x = fct_reorder(relig1, mean_TV_hours), y = mean_TV_hours))+
-  geom_point()+
+  ggplot(aes(x = fct_reorder(relig1, mean_TV_hours), 
+             y = mean_TV_hours, fill = relig1))+
+  geom_col() + 
   geom_errorbar(aes(ymin = mean_TV_hours - se_TV_hours,
                     ymax = mean_TV_hours + se_TV_hours))+
-  theme(axis.text.x = element_text(angle = 90))+
+  theme(axis.text.x = element_text(angle = 30))+
   xlab("")
 
 
@@ -138,18 +142,19 @@ survey2 %>%
 #' create these categories. Then use tbl_cross to summarise marital status
 #' by age category. How could you visualise this using ggplot?
 
-survey2 <- survey2 %>%
+survey3 <- survey3 %>%
   mutate(age_cat = cut(age, breaks = c(18,33,45,59,Inf),right = TRUE,
                        labels = c("18 - 33","34 - 45","46 - 59","60 and over")))
+table(survey3$age, survey3$age_cat )
 
-tbl_cross(survey2, row  = marital, col = age_cat)
+tbl_cross(survey3, row  = marital, col = age_cat)
 
-survey2 %>%
+survey3 %>%
   filter(!is.na(age_cat)) %>%
 ggplot(aes(x = age_cat, fill = marital)) +
   geom_bar()
 
-survey2 %>%
+survey3 %>%
   filter(!is.na(age_cat)) %>%
   ggplot(aes(x = age_cat, fill = marital)) +
   geom_bar(position = "fill")
@@ -158,4 +163,13 @@ survey2 %>%
 #' sepal width and sepal length by species using the iris data (base package).
 #' Use summary statistics mean and SD.
 
-iris
+iris %>%
+  group_by(Species) %>%
+  summarise(mean_width = mean(Sepal.Width),
+            sd_width = sd(Sepal.Width),
+            mean_length = mean(Sepal.Length),
+            sd_length = sd(Sepal.Length))
+
+iris %>%
+  group_by(Species) %>%
+  summarise(across(starts_with("Sepal"), list(mean=mean, sd=sd)))
